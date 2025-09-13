@@ -2,29 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Admin Messages</title>
-<<<<<<< HEAD
+  <title>Veltron - Admin Messages</title>
   <link rel="stylesheet" href="css/adminmsg.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-=======
-  <link rel="stylesheet" href="AdminMSG/adminmsg.css" />
->>>>>>> 2ee11d61b72dc3ea2b76cb119e344973151c3379
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
-  <h1>📥 Inbox – Admin Messages</h1>
-  <ul id="messagesList"></ul>
+  <header>
+    <h2>Admin Messages</h2>
+    <nav>
+      <a href="archived.html">Archived</a>
+      <button onclick="sessionStorage.clear(); window.location.href='adminlogin.html';">Logout</button>
+    </nav>
+  </header>
 
-<<<<<<< HEAD
-  <button id="logout">🚪 Logout</button>
-  <a href="archived.html">🗃️ View Archived Messages</a>
+  <main>
+    <div id="messages">Loading messages...</div>
+  </main>
 
   <script src="js/adminmsg.js"></script>
-=======
-  <button id="logout">Logout</button>
-  <a href="archived.html">🗃️ View Archived Messages</a>
-
-  <script src="AdminMSG/adminmsg.js"></script>
->>>>>>> 2ee11d61b72dc3ea2b76cb119e344973151c3379
 </body>
 </html>

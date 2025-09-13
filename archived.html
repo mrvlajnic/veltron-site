@@ -2,24 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Archived Messages</title>
-<<<<<<< HEAD
-  <link rel="stylesheet" href="css/archived.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-=======
-  <link rel="stylesheet" href="./AdminMSG/archived.css" />
->>>>>>> 2ee11d61b72dc3ea2b76cb119e344973151c3379
+  <title>Veltron - Archived Messages</title>
+  <link rel="stylesheet" href="css/adminmsg.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
-  <h1>🗃️ Archived Messages</h1>
-  <ul id="archivedList"></ul>
-  <a href="adminmsg.html">⬅️ Back to Inbox</a>
+  <header>
+    <h2>Archived Messages</h2>
+    <nav>
+      <a href="adminmsg.html">Inbox</a>
+      <button onclick="sessionStorage.clear(); window.location.href='adminlogin.html';">Logout</button>
+    </nav>
+  </header>
 
-<<<<<<< HEAD
+  <main>
+    <div id="archived">Loading archived messages...</div>
+  </main>
+
   <script src="js/archived.js"></script>
-=======
-  <script src="./AdminMSG/archived.js"></script>
->>>>>>> 2ee11d61b72dc3ea2b76cb119e344973151c3379
 </body>
 </html>
