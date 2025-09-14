@@ -2,33 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Veltron - Contact Us</title>
-  <link rel="stylesheet" href="css/contact.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veltron – Contact Us</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/contact.css" />
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <a href="index.html" class="logo">
       <img src="img/logo.png" alt="Veltron Logo" />
     </a>
+
+    <!-- we'll keep nav, but hamburger is hidden on this page via CSS -->
     <div class="nav-toggle" id="navToggle">☰</div>
     <nav class="nav-menu" id="navMenu">
       <a href="index.html#hero">Home</a>
       <a href="index.html#projects">Projects</a>
       <a href="index.html#about">About</a>
-      <a href="contact.html">Contact</a>
+      <a class="active" href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <section class="contact">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" id="name" placeholder="Your Name" required />
-      <input type="email" id="email" placeholder="Your Email" required />
-      <textarea id="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+  <main class="contact-wrap">
+    <section class="contact-card reveal">
+      <h1>Contact Us ✉️</h1>
+      <form id="contactForm" autocomplete="on">
+        <input type="text" id="name" name="name" placeholder="Your Name" required />
+        <input type="email" id="email" name="email" placeholder="Your Email" required />
+        <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
+        <button type="submit" class="btn-submit">Send Message</button>
+        <p id="formStatus" class="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
 
   <script src="js/contact.js"></script>
 </body>

@@ -1,131 +1,136 @@
-/* Reset + Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(270deg, #000, #111, #000, #0a0a0a);
-  color: #fff;
-  background-size: 800% 800%;
-  animation: gradientMove 15s ease infinite;
-  line-height: 1.6;
-  padding-top: 80px;
-}
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* ==== Base / Layout (matching homepage tone) ==== */
+:root {
+  --bg: #000;
+  --panel: #0a0a0a;
+  --panel-border: #1b1b1b;
+  --ink: #fff;
+  --ink-dim: #b9b9b9;
+  --line: #111;
 }
 
-/* Header */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(6px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
 }
+
+/* ==== Header / Nav (like homepage) ==== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
 .logo img {
   height: 40px;
+  display: block;
 }
-.nav-toggle {
-  display: none;
-}
+
 .nav-menu {
   display: flex;
-  gap: 20px;
+  gap: 22px;
 }
+
 .nav-menu a {
-  color: white;
-  padding: 10px 20px;
-  transition: background 0.3s;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.9;
 }
-.nav-menu a:hover {
-  background: rgba(255, 255, 255, 0.1);
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Hide the hamburger on this page (you asked for it gone) */
+.nav-toggle { display: none !important; }
+
+/* ==== Contact Card ==== */
+.contact-wrap {
+  min-height: calc(100vh - 70px); /* viewport minus header */
+  display: grid;
+  place-items: center;            /* perfect center */
+  padding: 24px;
+}
+
+.contact-card {
+  width: 100%;
+  max-width: 640px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+}
+
+.contact-card h1 {
+  margin: 0 0 18px 0;
+  font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
+  letter-spacing: 0.4px;
+}
+
+/* ==== Form Controls ==== */
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  margin: 10px 0 14px;
+  padding: 12px 14px;
   border-radius: 10px;
+  border: 1px solid #222;
+  background: #111;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .2s ease, background .2s ease;
 }
 
-/* Mobile Nav */
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: block;
-    font-size: 1.8rem;
-    cursor: pointer;
-  }
-
-  .nav-menu {
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    flex-direction: column;
-    background: #111;
-    padding: 15px;
-    border-radius: 10px;
-    display: none;
-  }
-
-  .nav-menu.active {
-    display: flex;
-  }
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+  color: var(--ink-dim);
 }
 
-/* Contact Form */
-.contact-section {
-  max-width: 600px;
-  margin: auto;
-  padding: 40px 20px;
+#contactForm input:focus,
+#contactForm textarea:focus {
+  border-color: #444;
+  background: #131313;
 }
-.contact-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  text-align: center;
-}
-.contact-section p {
-  text-align: center;
-  margin-bottom: 30px;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-label {
-  margin-bottom: 5px;
-}
-input, textarea {
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  background: #1a1a1a;
-  color: #fff;
-  font-size: 1rem;
-}
-button {
-  padding: 15px;
-  font-size: 1rem;
-  background: #fff;
+
+/* White button with black text (your request) */
+.btn-submit {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
   color: #000;
-  border: none;
-  border-radius: 8px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: transform .06s ease, background .2s ease, color .2s ease;
 }
-button:hover {
-  background: #e0e0e0;
-}
+
+.btn-submit:hover { transform: translateY(-1px); }
+.btn-submit:active { transform: translateY(0); }
+
+/* Status line below the button */
 .status {
   margin-top: 10px;
-  font-size: 0.9rem;
-  color: lightgreen;
+  font-size: 0.95rem;
+  color: var(--ink-dim);
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 600px) {
+  .site-header { padding: 12px 16px; }
+  .contact-card { padding: 22px; }
 }

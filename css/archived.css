@@ -1,78 +1,58 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #0d1117;
-  color: #c9d1d9;
   margin: 0;
-  padding: 2em;
-  text-align: center;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
 }
 
 h1 {
-  color: #58a6ff;
-  margin-bottom: 1.5em;
+  text-align: center;
+  margin: 20px 0;
 }
 
-ul {
-  list-style: none;
+#archivedList {
+  max-width: 800px;
+  margin: 0 auto;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5em;
+  list-style: none;
 }
 
-li {
-  background: #161b22;
-  padding: 1.5em;
-  border-radius: 12px;
-  width: 95%;
-  max-width: 600px;
-  text-align: left;
-  box-shadow: 0 0 10px rgba(88, 166, 255, 0.1);
-  border: 1px solid #30363d;
-  transition: transform 0.2s ease;
+#archivedList li {
+  background: #111;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  word-wrap: break-word;
 }
 
-li:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 14px rgba(88, 166, 255, 0.2);
+.timestamp {
+  font-size: 0.85em;
+  color: #aaa;
+  margin-top: 8px;
 }
 
-.email {
-  color: #4da6ff;
-  font-weight: 500;
-}
-
-small {
+#logout {
   display: block;
-  color: #8b949e;
-  margin-top: 0.7em;
-}
-
-a {
-  display: inline-block;
-  margin-top: 2em;
-  color: #58a6ff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-button.archive-btn {
-  background: #238636;
-  color: white;
+  margin: 10px auto 20px;
+  padding: 10px 20px;
+  background: #ff3333;
+  color: #fff;
   border: none;
-  padding: 0.5em 1.2em;
-  font-size: 0.9em;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
-  margin-top: 0.5em;
-  transition: background 0.2s ease;
+  transition: 0.3s;
 }
 
-button.archive-btn:hover {
-  background: #2ea043;
+#logout:hover {
+  background: #cc0000;
+}
+
+@media (max-width: 600px) {
+  #archivedList li {
+    font-size: 0.9em;
+    padding: 10px;
+  }
+  .timestamp {
+    font-size: 0.8em;
+  }
 }
